@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hash Calculation - The Results{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/bullport/css/hash.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h2>Hash Calculation: The Results</h2>
+    <p><b>Note:</b> Hashes had been calculated for all available algorithms. Table row with yellow background is the result of your chosen algorithm.</p>
+    <table class="bullport_hash_result_table">
+        <tr>
+            <th>Algorithm</th>
+            <th>Hashed Value</th>
+        </tr>
+        {%  for result in results %}
+            <tr {%  if result.active is defined %} class="bullport_hash_result_activeRow" {% else %} class="bullport_hash_result_inactiveRow" {% endif %}>
+                <td class="bullport_hash_result_name">{{ result.name }}</td>
+                <td class="bullport_hash_result_value">{{ result.hash }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <b>Info:</b> Original user input string value was: {{ input }}<br/>
+{% endblock %}

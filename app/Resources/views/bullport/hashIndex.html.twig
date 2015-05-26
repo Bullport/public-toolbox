@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hash Calculation{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/bullport/css/hash.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h2>Calculation of HASHes with different algorithms by using <a href="http://en.wikipedia.org/wiki/Strategy_pattern" target="_blank">Strategy</a> design pattern.</h2>
+    <p id="bullport_hash_notice"><b>Note:</b> Similar implementation for encryption a.s.o.</p>
+    {{ form_start(hashForm) }}
+    <table class="bullport_hash_input_table">
+        <tr>
+            <td>Enter some text:</td>
+            <td>{{ form_widget(hashForm.text) }}</td>
+        </tr>
+        <tr>
+            <td>Choose an algorithm:</td>
+            <td>{{ form_widget(hashForm.algorithm) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{ form_widget(hashForm.save) }}</td>
+        </tr>
+    </table>
+    {{ form_end(hashForm) }}
+{% endblock %}
