@@ -20,7 +20,8 @@ class HashController extends Controller
 {
     /**
      * @Route("/bullport/hash/", name="bullport_hash_index")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Template("BullportBundle:Hash:index.html.twig")
+     * @return array
      */
     public function indexAction()
     {
@@ -39,15 +40,14 @@ class HashController extends Controller
             ->add('save', 'submit', array('label' => 'Calculate!'))
             ->getForm();
 
-        return $this->render('bullport/hashIndex.html.twig', array(
-            'hashForm' => $hashForm->createView(),
-        ));
+        return array('hashForm' => $hashForm->createView());
     }
 
     /**
      * @param Request $request
      * @Route("/bullport/hash/calculate/{algorithm}", name="bullport_hash_calculate", defaults={"algorithm": "md5"}, requirements={"algorithm": "md5|sha256|bulli"})
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Template("BullportBundle:Hash:calculationResult.html.twig")
+     * @return array
      */
     public function calculateAction(Request $request)
     {
@@ -78,10 +78,10 @@ class HashController extends Controller
             $resultArray['havNestSha']['hash'] = $calculator->setHashAlgorithm($havHash)->calculateHash($form->getData()->getText());
             $resultArray[$form->getData()->getAlgorithm()]['active'] = true;
 
-            return $this->render('bullport/hashCalc.html.twig', array(
+            return array(
                 'results' => $resultArray,
                 'input' => $form->getData()->getText(),
-            ));
+            );
         }
         else {
             return $this->redirectToRoute('bullport_hash_index');
