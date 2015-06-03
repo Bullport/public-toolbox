@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Pizza compositor and ordering service{% endblock %}
+
+{% block body %}
+<h2>Pizza compositor and ordering by using <a href="http://en.wikipedia.org/wiki/Decorator_pattern" target="_blank">Decorator</a> and
+    <a href="http://en.wikipedia.org/wiki/Observer_pattern" target="_blank">Observer</a> design patterns.</h2>
+    <p>Here I used the Decorator design pattern for composing the Pizza and to calculate the total amount. When placing
+    the order, all Observers (kitchen, delivery service, email client) will be notified. I used the native PHP SPL classes to
+    implement the subject observer pattern instead of Symfony's Event Dispatcher because this way the code is easier to understand and
+    decoupled from used PHP framework.</p>
+    {{ form_start(orderForm) }}
+    {{ form_widget(orderForm) }}
+    <table class="bullport_pizza_input_table">
+        <tr>
+            <td>Enter some text:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Choose an algorithm:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    {{ form_end(orderForm) }}
+{% endblock %}
