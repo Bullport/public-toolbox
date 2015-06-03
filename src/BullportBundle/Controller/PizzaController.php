@@ -53,12 +53,12 @@ class PizzaController extends Controller
             ->add('crust', 'choice', array(
                 'required' => true,
                 'choices' => array(
-                    'PizzaCrustAmerican' => 'American (2 inches high)',
-                    'PizzaCrustItalian' => "Italian (Extra thin)",
-                    'PizzaCrustSpecialCheese' => "Thin crust with cheese in the edge",
+                    'PizzaCrustAmerican' => 'American Style (min 2 inches high)',
+                    'PizzaCrustItalian' => "Italian Style (Extra thin)",
+                    'PizzaCrustSpecialCheese' => "Cheesy Crust (thin crust with cheese in the edge)",
                 )
             ))
-            ->add('save', 'submit', array('label' => 'Calculate!'))
+            ->add('save', 'submit', array('label' => 'Order this Pizza!'))
             ->getForm();
 
         return array('orderForm' => $orderForm->createView());

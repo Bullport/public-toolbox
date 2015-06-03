@@ -2,6 +2,10 @@
 
 {% block title %}Pizza compositor and ordering service{% endblock %}
 
+{% block stylesheets %}
+    <link href="{{ asset('bundles/bullport/css/pizza.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
 <h2>Pizza compositor and ordering by using <a href="http://en.wikipedia.org/wiki/Decorator_pattern" target="_blank">Decorator</a> and
     <a href="http://en.wikipedia.org/wiki/Observer_pattern" target="_blank">Observer</a> design patterns.</h2>
@@ -10,19 +14,30 @@
     implement the subject observer pattern instead of Symfony's Event Dispatcher because this way the code is easier to understand and
     decoupled from used PHP framework.</p>
     {{ form_start(orderForm) }}
-    {{ form_widget(orderForm) }}
     <table class="bullport_pizza_input_table">
         <tr>
-            <td>Enter some text:</td>
-            <td></td>
+            <td>How hungry are you:</td>
+            <td>{{ form_widget(orderForm.size) }}</td>
         </tr>
         <tr>
-            <td>Choose an algorithm:</td>
-            <td></td>
+            <td>Choose a crust:</td>
+            <td>{{ form_widget(orderForm.crust) }}</td>
+        </tr>
+        <tr>
+            <td>Choose a sauce:</td>
+            <td>{{ form_widget(orderForm.sauce) }}</td>
+        </tr>
+        <tr>
+            <td>Assemble your dream pizza:</td>
+            <td>
+                {% for ingredient in orderForm.ingredients %}
+                    {{ form_row(ingredient) }}
+                {% endfor %}
+            </td>
         </tr>
         <tr>
             <td></td>
-            <td></td>
+            <td>{{ form_widget(orderForm.save) }}</td>
         </tr>
     </table>
     {{ form_end(orderForm) }}
