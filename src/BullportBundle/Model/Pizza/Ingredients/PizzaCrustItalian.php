@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: oxmo
- * Date: 03.06.15
- * Time: 12:24
+ * @author Michael Zippe [https://www.xing.com/profile/Michael_Zippe]
  */
 
 namespace BullportBundle\Model\Pizza\Ingredients;
