@@ -19,7 +19,7 @@ use BullportBundle\Model\Hash\Entity\UserInputData;
 class HashController extends Controller
 {
     /**
-     * @Route("/bullport/hash/", name="bullport_hash_index")
+     * @Route("/bullport/hash", name="bullport_hash_index")
      * @Template("BullportBundle:Hash:index.html.twig")
      * @return array
      */

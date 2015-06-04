@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}BullportBundle: Animal Hotel{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/bullport/css/global.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/bullport/css/animal.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<h2>Puppy dwelling creation:</h2>
+    <ul>
+    {% for resultName,resultValue in creationResult %}
+        <li>{{ resultValue }}</li>
+    {% endfor %}
+    </ul>
+    <h2>Everything ready for puppy to move in.</h2>
+{% endblock %}

@@ -78,6 +78,10 @@ class PizzaController extends Controller
     {
         $formData = $request->get('form');
 
+        if($formData === null || !array_key_exists('crust', $formData)) {
+            return $this->redirectToRoute('bullport_pizza_index');
+        }
+
         try {
             $pizzaCrust = 'BullportBundle\\Model\\Pizza\\Ingredients\\' . $formData['crust'];
             $pizza = new $pizzaCrust();

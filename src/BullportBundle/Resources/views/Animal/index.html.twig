@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}BullportBundle: Animal Hotel{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/bullport/css/global.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/bullport/css/animal.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<h2>Animal Hotel using <a href="http://en.wikipedia.org/wiki/Abstract_factory_pattern" target="_blank">Abstract Factory</a> design pattern</h2>
+    <p>It is easy to add new animals, toys, feed a.s.o. or to rearrange them. Biggest advantage is that the client doesn't need to take care about for
+    which animal the dwelling will be created. Classes in </p>
+    {{ form_start(animalForm) }}
+    <table class="bullport_animal_input_table">
+        <tr>
+            <td>Please choose your species:</td>
+            <td>{{ form_widget(animalForm.species) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{ form_widget(animalForm.save) }}</td>
+        </tr>
+    </table>
+    {{ form_end(animalForm) }}
+{% endblock %}

@@ -2,6 +2,11 @@
 
 {% block title %}Pizza compositor and ordering service{% endblock %}
 
+{% block stylesheets %}
+    <link href="{{ asset('bundles/bullport/css/global.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/bullport/css/hash.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
 {% block body %}
 <h2>Order complete.</h2>
 {% endblock %}
