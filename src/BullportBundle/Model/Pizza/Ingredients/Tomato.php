@@ -15,19 +15,19 @@ class Tomato extends PizzaFilling
     {
         switch($this->getSize()) {
             case PizzaCrustAbstract::S:
-                return 0.30;
+                return $this->pizza->getCost() + 0.30;
                 break;
 
             case PizzaCrustAbstract::M:
-                return 0.60;
+                return $this->pizza->getCost() + 0.60;
                 break;
 
             case PizzaCrustAbstract::L:
-                return 1.00;
+                return $this->pizza->getCost() + 1.00;
                 break;
 
             case PizzaCrustAbstract::XL:
-                return 1.30;
+                return $this->pizza->getCost() + 1.30;
                 break;
 
             default:
