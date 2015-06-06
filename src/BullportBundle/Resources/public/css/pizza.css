@@ -1,0 +1,17 @@
+.bullport_pizza_input_table td div {
+    clear: both;
+    float: none;
+    position: relative;
+}
+
+.bullport_pizza_input_table td input {
+    left: 0;
+    position: absolute;
+    top: 1px;
+}
+
+.bullport_pizza_input_table td label  {
+    display: block;
+    margin-left: 25px;
+    width: 200px;
+}

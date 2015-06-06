@@ -1,0 +1,7 @@
+.idea
+/app
+/bin
+/src/Acme
+/src/AppBundle
+/vendor
+/web
